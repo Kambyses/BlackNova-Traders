@@ -17,6 +17,8 @@
 //
 // File: config.php
 
+error_reporting(E_ALL);
+
                                                                 // All sched_* vars are in minutes.
                                                                 // These are true minutes, no matter to what interval you're running the scheduler script!
                                                                 // The scheduler will auto-adjust, possibly running many of the same events in a single call.
