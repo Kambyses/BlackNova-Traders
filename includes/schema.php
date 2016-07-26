@@ -380,7 +380,7 @@ $db->Execute("CREATE TABLE IF NOT EXISTS {$db->prefix}sessions (" .
              "SESSKEY varchar(32) DEFAULT '' NOT NULL," .
              "EXPIRY int(11) default '0' NOT NULL," .
              "EXPIREREF varchar(64)," .
-             "SESSDATA longblob default '' NOT NULL," .
+             "SESSDATA longblob NOT NULL," .
              "PRIMARY KEY (EXPIRY)," .
              "KEY SESSKEY(SESSKEY)" .
              ")");
