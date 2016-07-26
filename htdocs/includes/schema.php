@@ -119,7 +119,7 @@ $db->Execute("CREATE TABLE IF NOT EXISTS {$db->prefix}ships (" .
              "ship_name char(20)," .
              "ship_destroyed enum('Y','N') DEFAULT 'N' NOT NULL," .
              "character_name char(20) NOT NULL," .
-             "password char(60) NOT NULL," .
+             "password char(100) NOT NULL," .
              "email char(60) NOT NULL," .
              "hull tinyint(3) unsigned DEFAULT '0' NOT NULL," .
              "engines tinyint(3) unsigned DEFAULT '0' NOT NULL," .

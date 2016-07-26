@@ -853,6 +853,9 @@ l_new_pname                             = "Nom du joueur";
 l_new_info                              = "Nous vous promettons de ne pas donner (ou vendre) votre adresse e-mail à qui que ce soit.  Elle est requise pour vous envoyer votre mot de passe.";
 l_new_closed_message                    = "La partie est fermée pour tournoi";
 l_new_blank                             = "E-mail, nom du vaisseau et nom du joueur ne peuvent être vides.";
+l_new_pass_repeat                       = "Repeat password";
+l_new_pass_invalid                      = "Invalid password";
+l_new_pass_mismatch                     = "Passwords dont match.";
 l_new_inuse                             = "L'adresse e-mail est déjà en utilisation.";
 l_new_4gotpw1                           = "Si vous avez oublié votre mot de passe,";
 l_new_4gotpw2                           = "pour qu'il soit envoyé à votre adresse e-mail.";
@@ -1403,4 +1406,3 @@ l_zi_control                            = "Vous êtes en contôle de cette zone";
 l_zi_tochange                           = "pour changer ses lois.";
 l_zi_owner                              = "Responsable de la zone";
 l_zi_maxhull                            = "Coque maximum permise";
-

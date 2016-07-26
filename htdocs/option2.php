@@ -70,7 +70,7 @@ else
     }
     else
     {
-        $res = $db->Execute("UPDATE {$db->prefix}ships SET password='$newpass1' WHERE ship_id=$playerinfo[ship_id]");
+        $res = $db->Execute("UPDATE {$db->prefix}ships SET password='" . crypt($newpass1, $crypt_salt) . "' WHERE ship_id=$playerinfo[ship_id]");
         db_op_result ($db, $res, __LINE__, __FILE__, $db_logging);
         if ($res)
         {

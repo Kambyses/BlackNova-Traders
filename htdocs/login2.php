@@ -23,7 +23,7 @@ include "config/config.php";
 $playerfound = false;
 
 $email = $_POST['email'];
-$pass = $_POST['pass'];
+$pass  = crypt($_POST['pass'], $crypt_salt);
 
 if ($_POST['email'] != null)
 {

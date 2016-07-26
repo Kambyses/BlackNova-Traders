@@ -853,6 +853,9 @@ l_new_pname                             = "Spieler Charakter Name";
 l_new_info                              = "Wir versprechen, Deine E-Mailadresse weder an jemanden zu verkaufen noch sonstwie weiterzugeben. Es ist ausschlie&szlig;lich erforderlich, um Dir ein servergeneriertes Passwort zuzusenden. Es ist nur f&uuml;r den Administrator sichtbar, den es nebenbei &uuml;berhaupt nicht interessiert, solange es nur funktioniert;-)";
 l_new_closed_message                    = "Spiel wurde f&uuml;r ein Tunierspiel geschlossen";
 l_new_blank                             = "Email, Schiffsname und Charaktername sollten nicht leer sein.";
+l_new_pass_repeat                       = "Repeat password";
+l_new_pass_invalid                      = "Invalid password";
+l_new_pass_mismatch                     = "Passwords dont match.";
 l_new_inuse                             = "Die Emailadresse gibt es bereits.";
 l_new_4gotpw1                           = "Falls Du dein Passwort vergessen hast,";
 l_new_4gotpw2                           = "um es Dir zukommen zulassen.";
@@ -1403,4 +1406,3 @@ l_zi_control                            = "Du kontrollierst diese Zone";
 l_zi_tochange                           = "um die Gesetzte zu &auml;ndern.";
 l_zi_owner                              = "Zonen Eigent&uuml;mer";
 l_zi_maxhull                            = "Maximal erlaubter durchschnittlicher Technikstand";
-

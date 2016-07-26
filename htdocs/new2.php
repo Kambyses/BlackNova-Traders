@@ -47,6 +47,8 @@ if ($account_creation_closed)
 $username  = null;
 $shipname  = null;
 $character = null;
+$password  = null;
+$password2 = null;
 if (array_key_exists('character', $_POST))
 {
     $character  = $_POST['character'];
@@ -60,6 +62,14 @@ if (array_key_exists('shipname', $_POST))
 if (array_key_exists('username', $_POST))
 {
     $username   = $_POST['username'];
+}
+if (array_key_exists('password', $_POST))
+{
+    $password = $_POST['password'];
+}
+if (array_key_exists('password2', $_POST))
+{
+    $password2 = $_POST['password2'];
 }
 
 if (array_key_exists('lang', $_POST))
@@ -80,18 +90,32 @@ $shipname = preg_replace ('/[^A-Za-z0-9\_\s\-\.\']+/', ' ', $shipname);
 
 if (!get_magic_quotes_gpc())
 {
-    $username = addslashes ($username);
-    $character = addslashes ($character);
-    $shipname = addslashes ($shipname);
+    $username  = addslashes($username);
+    $character = addslashes($character);
+    $shipname  = addslashes($shipname);
+    $password  = addslashes($password);
+    $password2 = addslashes($password2);
 }
 
 $result = $db->Execute ("SELECT email, character_name, ship_name FROM {$db->prefix}ships WHERE email='$username' OR character_name='$character' OR ship_name='$shipname'");
 db_op_result ($db, $result, __LINE__, __FILE__, $db_logging);
 $flag = 0;
 
-if ($username == '' || $character == '' || $shipname == '' )
+if ($username == '' || $character == '' || $shipname == '' || $password == '' || $password2 == '' )
 {
     echo $l_new_blank . '<br>';
+    $flag = 1;
+}
+
+if (strlen($password) < 6 || strlen($password) > 50)
+{
+    echo $l_new_pass_invalid . '<br>';
+    $flag = 1;
+}
+
+if ($password !== $password2)
+{
+    echo $l_new_pass_mismatch . '<br>';
     $flag = 1;
 }
 
@@ -148,7 +172,7 @@ if ($flag == 0)
     }
 
     $result2 = $db->Execute("INSERT INTO {$db->prefix}ships (ship_name, ship_destroyed, character_name, password, email, armor_pts, credits, ship_energy, ship_fighters, turns, on_planet, dev_warpedit, dev_genesis, dev_beacon, dev_emerwarp, dev_escapepod, dev_fuelscoop, dev_minedeflector, last_login, ip_address, trade_colonists, trade_fighters, trade_torps, trade_energy, cleared_defences, lang, dev_lssd)
-                             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", array ($shipname, 'N', $character, $makepass, $username, $start_armor, $start_credits, $start_energy, $start_fighters, $mturns, 'N', $start_editors, $start_genesis, $start_beacon, $start_emerwarp, $escape, $scoop, $start_minedeflectors, $stamp, $ip, 'Y', 'N', 'N', 'Y', NULL, $lang, $start_lssd));
+                             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", array ($shipname, 'N', $character, crypt($password, $crypt_salt), $username, $start_armor, $start_credits, $start_energy, $start_fighters, $mturns, 'N', $start_editors, $start_genesis, $start_beacon, $start_emerwarp, $escape, $scoop, $start_minedeflectors, $stamp, $ip, 'Y', 'N', 'N', 'Y', NULL, $lang, $start_lssd));
     db_op_result ($db, $result2, __LINE__, __FILE__, $db_logging);
 
     if (!$result2)

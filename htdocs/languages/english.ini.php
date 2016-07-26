@@ -852,7 +852,10 @@ l_new_shipname                          = "Ship Name";
 l_new_pname                             = "Player Character Name";
 l_new_info                              = "We promise not to give out (or sell) your e-mail address to anyone.  It is required though, to send you your server generated password..";
 l_new_closed_message                    = "Game closed for tournament play";
-l_new_blank                             = "E-mail, ship name, and character name may not be blank.";
+l_new_blank                             = "E-mail, password, ship name, and character name may not be blank.";
+l_new_pass_repeat                       = "Repeat password";
+l_new_pass_invalid                      = "Invalid password";
+l_new_pass_mismatch                     = "Passwords dont match.";
 l_new_inuse                             = "E-mail address is already in use.";
 l_new_4gotpw1                           = "If you have forgotten your password,";
 l_new_4gotpw2                           = "to have it e-mailed to you.";
@@ -1403,4 +1406,3 @@ l_zi_control                            = "You are in control of this zone";
 l_zi_tochange                           = "to change its laws.";
 l_zi_owner                              = "Zone owner";
 l_zi_maxhull                            = "Maximum average tech level allowed";
-

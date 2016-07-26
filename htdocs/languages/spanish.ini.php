@@ -853,6 +853,9 @@ l_new_pname                             = "Nombre del Personaje del Jugador";
 l_new_info                              = "Prometemos no dar (o vender) tu dirección de email a nadie. Se requiere para enviarte la contraseña generada por el servidor.";
 l_new_closed_message                    = "Juego cerrado por Partida de Torneo";
 l_new_blank                             = "El email, nombre de la nave, y nombre del personaje no pueden estar en blanco.";
+l_new_pass_repeat                       = "Repeat password";
+l_new_pass_invalid                      = "Invalid password";
+l_new_pass_mismatch                     = "Passwords dont match.";
 l_new_inuse                             = "La dirección de email ya está en uso.";
 l_new_4gotpw1                           = "Si has olvidado tu contraseña,";
 l_new_4gotpw2                           = "para que te sea enviada por email.";
@@ -1403,4 +1406,3 @@ l_zi_control                            = "Tienes el control de esta zona";
 l_zi_tochange                           = "para cambiar sus leyes.";
 l_zi_owner                              = "Propietario de la zona";
 l_zi_maxhull                            = "Máximo promedio de nivel tecnológico permitido";
-
