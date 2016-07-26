@@ -233,5 +233,8 @@ if (isset($gamedomain) && strlen($gamedomain) >0)
         $gamedomain=".$gamedomain";
     }
 }
+
+if ($_SERVER['HTTP_HOST'] === 'localhost') {
+    $gamedomain = 'localhost';
+}
 // Game domain setting ends
-?>
