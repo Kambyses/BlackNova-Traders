@@ -1,54 +1,4 @@
-<?php
-// Blacknova Traders - A web-based massively multiplayer space combat and trading game
-// Copyright (C) 2001-2012 Ron Harwood and the BNT development team
-//
-//  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU Affero General Public License as
-//  published by the Free Software Foundation, either version 3 of the
-//  License, or (at your option) any later version.
-//
-//  This program is distributed in the hope that it will be useful,
-//  but WITHOUT ANY WARRANTY; without even the implied warranty of
-//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU Affero General Public License for more details.
-//
-//  You should have received a copy of the GNU Affero General Public License
-//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-//
-// File: index.php
-
-header('location: bnt.php');
-exit;
-
-$index_page = true;
-include "config/config.php";
-
-if (!isset($_GET['lang']))
-{
-    $_GET['lang'] = null;
-    $lang = $default_lang;
-    $link = '';
-}
-else
-{
-    $lang = $_GET['lang'];
-    $link = "?lang=" . $lang;
-}
-
-// Check to see if the language database has been installed yet.
-$result = $db->Execute("SELECT name, value FROM {$db->prefix}languages WHERE category=? AND language=?;", array('common', $lang));
-if (!$result)
-{
-    // If not, redirect to create_universe.
-    header("Location: create_universe.php");
-    die ();
-}
-
-$title = $l->get('l_welcome_bnt');
-$body_class = 'index';
-
-include "header.php";
-?>
+<?php include_once __TEMPLATES__ . "header.php"; ?>
 
 <div class="index-header"><img class="index" src="images/header1.png" alt="Blacknova Traders"></div>
 <div class="index-flags">
@@ -72,7 +22,7 @@ include "header.php";
 <div class="index-welcome">
 <h1 class="index-h1"><?php echo $l->get('l_welcome_bnt'); ?></h1>
 <p><?php echo $l->get('l_bnt_description'); ?><br></p>
-<form action="login2.php<?php echo $link; ?>" method="post">
+<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post">
 <dl class="twocolumn-form">
 <dt><label for="email"><?php echo $l->get('l_login_email'); ?></label></dt>
 <dd><input type="email" id="email" name="email" size="20" maxlength="40"></dd>
@@ -88,4 +38,5 @@ include "header.php";
 <br>
 <p class="cookie-warning"><?php echo $l->get('l_cookie_warning'); ?></p></div>
 <br>
-<?php include "footer.php"; ?>
+
+<?php include_once __TEMPLATES__ . "footer.php"; ?>
